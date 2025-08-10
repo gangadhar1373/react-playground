@@ -13,6 +13,7 @@ export const NAV: NavGroup[] = [
     children: [
       { label: 'Counter', path: '/components/counter' },
       { label: 'Login', path: '/components/login' },
+      { label: 'List Data', path: '/components/list-data' },
     ],
   },
   {

@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SideNav from './navigation/SideNav';
-import { NAV, NavGroup } from './navigation/nav';
+import { NAV, NavGroup } from './navigation/navData';
 import './App.css';
 
 // Optional: use icons for groups
 import { faPuzzlePiece, faCode } from '@fortawesome/free-solid-svg-icons';
 import Counter from './components/Counter';
+import ListData from './components/ListData';
 
 function Layout() {
   // Add icons to groups (if desired)
@@ -17,11 +18,12 @@ function Layout() {
   return (
     <div className='app'>
       <SideNav title='Playground' groups={groupsWithIcons} />
-      <main style={{ flex: 1, padding: 24 }}>
+      <main className='main-content'>
         <Routes>
           {/* Components */}
           <Route path='/components/counter' element={<Counter />} />
           <Route path='/components/login' element={<div>Login Component</div>} />
+          <Route path='/components/list-data' element={<ListData />} />
 
           {/* Hooks */}
           <Route path='/hooks/useState' element={<div>useState Demo</div>} />

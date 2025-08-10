@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronLeft, faBars } from '@fortawesome/free-solid-svg-icons';
-import type { NavGroup } from './nav';
+import type { NavGroup } from './navData';
 import './SideNav.css';
 
 interface SideNavProps {
@@ -16,6 +16,7 @@ interface SideNavProps {
 export default function SideNav({ title = 'My App', groups, open, onToggleOpen }: SideNavProps) {
   const loc = useLocation();
   const [internalOpen, setInternalOpen] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const isOpen = open ?? internalOpen;
   const setOpen = onToggleOpen ?? setInternalOpen;
 
@@ -42,12 +43,16 @@ export default function SideNav({ title = 'My App', groups, open, onToggleOpen }
       <div className={`sn-overlay ${isOpen ? 'is-open' : ''}`} onClick={() => setOpen(false)} />
 
       {/* Sidebar */}
-      <aside className={`sn ${isOpen ? 'is-open' : ''}`} aria-label='Primary'>
+      <aside className={`sn ${isOpen ? 'is-open' : ''} ${isCollapsed ? 'closed' : ''}`} aria-label='Primary'>
         <div className='sn-header'>
           <div className='sn-brand' title={title}>
             {title}
           </div>
-          <button className='sn-close' aria-label='Close menu' onClick={() => setOpen(false)}>
+          <button
+            className='sn-close'
+            aria-label={isCollapsed ? 'Expand menu' : 'Collapse menu'}
+            onClick={() => setIsCollapsed(!isCollapsed)}
+          >
             <FontAwesomeIcon icon={faChevronLeft} />
           </button>
         </div>
@@ -62,6 +67,7 @@ export default function SideNav({ title = 'My App', groups, open, onToggleOpen }
                   className={`sn-groupBtn ${isExpanded ? 'is-expanded' : ''} ${isGroupActive ? 'is-active' : ''}`}
                   onClick={() => setExpanded((prev) => ({ ...prev, [i]: !prev[i] }))}
                   aria-expanded={isExpanded}
+                  data-tooltip={group.label}
                 >
                   {group.icon && <FontAwesomeIcon icon={group.icon} className='sn-groupIcon' />}
                   <span className='sn-groupLabel'>{group.label}</span>

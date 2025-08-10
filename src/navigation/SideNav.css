@@ -80,6 +80,69 @@ body {
   transform: translateX(0);
 }
 
+.sn.closed {
+  width: 64px;
+}
+
+.sn.closed .sn-brand,
+.sn.closed .sn-groupLabel,
+.sn.closed .sn-label,
+.sn.closed .sn-children,
+.sn.closed .sn-chev {
+  display: none;
+}
+
+.sn.closed .sn-header {
+  justify-content: center;
+  padding: 14px 0;
+}
+
+.sn.closed .sn-close {
+  transform: rotate(180deg);
+  margin: 0;
+}
+
+.sn.closed .sn-groupBtn {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+}
+
+.sn.closed .sn-groupBtn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--sn-bg-2);
+  color: var(--sn-text);
+  padding: 6px 12px;
+  border-radius: var(--sn-radius);
+  border: 1px solid var(--sn-border);
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 1100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sn.closed .sn-groupBtn:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sn.closed .sn-groupIcon {
+  margin: 0;
+}
+
+.sn.closed .sn-nav {
+  padding: 10px 8px;
+}
+
 .sn-overlay {
   position: fixed;
   inset: 0;
@@ -218,7 +281,8 @@ body {
     top: 0;
     left: 0;
     height: 100dvh;
-    transform: none; /* always visible */
+    transform: none !important; /* always visible */
+    transition: width var(--sn-ease);
   }
 
   /* Optional: parent layout should be grid: sidebar + content */
