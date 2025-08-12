@@ -11,9 +11,11 @@ export const NAV: NavGroup[] = [
   {
     label: 'Components',
     children: [
+      { label: 'HelloCard', path: '/components/hello-card' },
       { label: 'Counter', path: '/components/counter' },
       { label: 'Login', path: '/components/login' },
       { label: 'List Data', path: '/components/list-data' },
+      { label: 'GitHub Users', path: '/components/github-users' },
     ],
   },
   {
@@ -21,6 +23,7 @@ export const NAV: NavGroup[] = [
     children: [
       { label: 'useState', path: '/hooks/useState' },
       { label: 'useEffect', path: '/hooks/useEffect' },
+      { label: 'useDeferredValue', path: '/hooks/useDeferredValue' },
     ],
   },
 ];
