@@ -11,13 +11,23 @@ const slowFunction = (num: number) => {
 const UseMemoExample = () => {
   const [number, setNumber] = useState(0);
   const [dark, setDark] = useState(false);
+
+  // useMemo is used to memoize expensive calculations
   const doubleNumber = useMemo(() => {
     return slowFunction(number);
   }, [number]); // Only recompute when 'number' changes
-  const themeStyles = {
-    backgroundColor: dark ? 'black' : 'white',
-    color: dark ? 'white' : 'black',
-  };
+
+  // referential equality for styles
+  // This will not change unless 'dark' changes
+  // This is useful for performance optimization
+  // to avoid unnecessary re-renders of child components
+
+  const themeStyles = useMemo(() => {
+    return {
+      backgroundColor: dark ? 'black' : 'white',
+      color: dark ? 'white' : 'black',
+    };
+  }, [dark]);
 
   return (
     <div className='use-memo-example-container'>
