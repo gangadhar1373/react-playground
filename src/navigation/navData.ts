@@ -21,9 +21,15 @@ export const NAV: NavGroup[] = [
   {
     label: 'Hooks',
     children: [
-      { label: 'useState', path: '/hooks/useState' },
-      { label: 'useEffect', path: '/hooks/useEffect' },
-      { label: 'useDeferredValue', path: '/hooks/useDeferredValue' },
+      { label: 'useStateExample', path: '/hooks/UseStateExample' },
+      { label: 'useEffectExample', path: '/hooks/UseEffectExample' },
+      { label: 'useDeferredValueExample', path: '/hooks/UseDeferredValueExample' },
+      { label: 'useMemoExample', path: '/hooks/useMemoExample' },
+      { label: 'useRefExample', path: '/hooks/useRefExample' },
+      { label: 'useReducerExample', path: '/hooks/useReducerExample' },
+      { label: 'useContextExample', path: '/hooks/useContextExample' },
+      { label: 'useLayoutEffectExample', path: '/hooks/useLayoutEffectExample' },
+      { label: 'useImperativeHandleExample', path: '/hooks/useImperativeHandleExample' },
     ],
   },
 ];

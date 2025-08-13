@@ -10,7 +10,10 @@ import ListData from './components/ListData';
 import Login from './components/Login';
 import HelloCard from './components/HelloCard';
 import GithubUsers from './components/GithubUsers';
-import { List } from './hooks/useDeferredValue';
+import { UseDeferredValueExample } from './hooks/UseDeferredValuesExample';
+import { UseStateExample } from './hooks/UseStateExample';
+import UseEffectExample from './hooks/UseEffectExample';
+import UseMemoExample from './hooks/UseMemoExample';
 
 function Layout() {
   // Add icons to groups (if desired)
@@ -32,9 +35,17 @@ function Layout() {
           <Route path='/components/github-users' element={<GithubUsers />} />
 
           {/* Hooks */}
-          <Route path='/hooks/useState' element={<div>useState Demo</div>} />
-          <Route path='/hooks/useEffect' element={<div>useEffect Demo</div>} />
-          <Route path='/hooks/useDeferredValue' element={<List />} />
+          <Route path='/hooks/UseStateExample' element={<UseStateExample />} />
+          <Route path='/hooks/useEffectExample' element={<UseEffectExample />} />
+          <Route path='/hooks/useDeferredValueExample' element={<UseDeferredValueExample />} />
+          <Route path='/hooks/useMemoExample' element={<UseMemoExample />} />
+          <Route path='/hooks/useRefExample' element={<div>UseRefExample</div>} />
+          <Route path='/hooks/useReducerExample' element={<div>UseReducerExample</div>} />
+          <Route path='/hooks/useContextExample' element={<div>UseContextExample</div>} />
+          <Route path='/hooks/useLayoutEffectExample' element={<div>UseLayoutEffectExample</div>} />
+          <Route path='/hooks/useImperativeHandleExample' element={<div>UseImperativeHandleExample</div>} />
+
+          {/* Default route */}
 
           {/* Default */}
           <Route path='*' element={<div>Select an item from the sidebar</div>} />
